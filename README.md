@@ -7,4 +7,7 @@ $ composer install
 ````
 
 Add Weather Providers:
-Weather\Providers\YourWeatherProvider
+App\Weather\Providers\YourWeatherProvider
+
+Register Weather Provider:
+App\Providers\WeatherServiceProvider
