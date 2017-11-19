@@ -3,8 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Weather\Providers\OpenWeatherServiceProvider;
-use App\Weather\WeatherService;
+use App\Weather\Weather;
 
 class WeatherController extends Controller
 {
@@ -13,12 +12,9 @@ class WeatherController extends Controller
     	return view('weather');
     }
 
-    public function getWeather(Request $request){
+    public function getWeather(Request $request, Weather $weather){
 
-    	$weather_provider = new OpenWeatherServiceProvider($request['api_key'], $request['city']);
-		$weather_service = new WeatherService($weather_provider);
-		$weather = $weather_service->getWeather();
-
-		return $weather;	
-    }    
+    	$weather->config( $request['api_key'], $request['city'] );
+    	return $weather->getWeather();	
+    }   
 }

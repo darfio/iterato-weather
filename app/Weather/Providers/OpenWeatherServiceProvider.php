@@ -8,9 +8,13 @@ class OpenWeatherServiceProvider implements Weather
 	private $api_key;
 	private $city;
 
-	public function __construct($api_key, $city){
+	public function __construct(){
+		//
+	}
+
+	public function config($api_key, $city){
 		$this->api_key = $api_key;
-		$this->city = $city;
+		$this->city = $city;		
 	}
 	
 	function getWeather()
